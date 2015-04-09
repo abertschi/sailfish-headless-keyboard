@@ -1,3 +1,6 @@
+![license: MIT]( https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
+[![twitter: @andrinbertschi]( https://img.shields.io/badge/twitter-andrinbertschi-yellow.svg?style=flat-square)](twitter.com/andrinbertschi)  
+
 # safilish-headless-keyboard-layout
 
 The headless keyboard layout provides an alternative keyboard layout for
@@ -5,11 +8,11 @@ sailfish os. It aims to enable applications to insert any text into a
 currently focused widget on the screen.
 
 ## Installation
-- App is still in initial development. TODO: package and publish in openrepos.
+- This project is still in development
 
 # API
 
-This is the reference document for the headless-keyboard layout on sailfish os.
+This is the reference document for the headless-keyboard layout.
 This api describes the available functionality to control the keyboard layout.
 
 If the keyboard layout is running,
@@ -60,15 +63,6 @@ The following commands are supported by the keyboard.
 {
   "cmd": "insert_text",
   "arg": "any text ..."
-}
-```
-
-### Command 'newline'
-> Insert a newline into currently focused widget
-
-```json
-{
-  "cmd": "insert_newline"
 }
 ```
 
