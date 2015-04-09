@@ -26,8 +26,7 @@ import QtQuick.LocalStorage 2.0
 import ".."
 
 KeyboardLayout {
-    property
-    var db: null
+    property var db: null
 
     KeyboardRow {
         SpacebarKey {
@@ -44,19 +43,30 @@ KeyboardLayout {
 
             var text = Clipboard.text
 
-            text = '{ cmds: [{ cmd: "set_label", "arg": "this is a label"}]}'
+            if (text == null || text == '') {
+                return
+            }
 
-            var command = parseJson(text)
+            // debug
+            //text = '{ "cmds": [{ "cmd": "set_label", "arg": "this is a label"}]}'
+            //text = '{ "cmd": "insert_text", "arg": "a"}'
+
+            var command
+            try {
+                command = JSON.parse(text)
+            } catch (e) {
+                command = null
+            }
 
             if (command == null) {
                 return
             }
 
-            if (command.cmd != 'undefined') {
+            if (command.cmd != 'undefined' && command.cmd != null) {
                 evalCmd(command.cmd, command.arg)
             }
 
-            if (command.cmds != 'undefined') {
+            if (command.cmds != 'undefined' && command.cmds != null) {
                 for (var i = 0; i < command.cmds.length; i++) {
                     var cmd = command.cmds[i]
                     evalCmd(cmd.cmd, cmd.arg)
@@ -87,33 +97,32 @@ KeyboardLayout {
                 break;
 
             case 'key_backspace':
-                //MInputMethodQuick.sendCommit(msg)
+                MInputMethodQuick.sendCommit('todo')
                 break;
 
             case 'key_return':
-                //MInputMethodQuick.sendCommit(msg)
+                MInputMethodQuick.sendCommit('todo')
+                break;
+
+            case 'enable_debug':
+                MInputMethodQuick.sendCommit('todo')
                 break;
 
             default:
-                debug('unknown command: (' + cmd + ',' + msg + ')'
+                debug('unknown command: (' + cmd + ',' + msg + ')')
                 return -1
         }
         return 0
     }
 
     function debug(msg) {
-        MInputMethodQuick.sendCommit('- ' + msg + '\r')
+        //MInputMethodQuick.sendCommit('- ' + msg + '\r')
     }
 
-    function parseJson(json) {
-        var command;
-        try {
-            command = JSON.parse(text)
-        } catch (e) {
-            command = null
-        }
-        return command
-    }
+    //Timer {
+    //    interval: 200; running: true; repeat: true
+    //    onTriggered: Clipboard.text = 'a'
+    // }
 
     function openDB() {
         if (db !== null) return;
