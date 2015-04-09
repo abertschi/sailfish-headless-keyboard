@@ -1,5 +1,5 @@
 ![license: MIT]( https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
-[![twitter: @andrinbertschi]( https://img.shields.io/badge/twitter-andrinbertschi-yellow.svg?style=flat-square)](twitter.com/andrinbertschi)  
+![twitter: @andrinbertschi](https://img.shields.io/badge/twitter-andrinbertschi-yellow.svg?style=flat-square) 
 
 # sailfish-headless-keyboard-layout
 
