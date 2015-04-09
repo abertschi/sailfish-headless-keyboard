@@ -84,6 +84,6 @@ The following commands are supported by the keyboard.
 }
 ```
 
-## Projects that uses headless-wlan-keyboard
+## Projects that use headless-wlan-keyboard
 - [sailfish-wlan-keyboard](https://github.com/abertschi/sailfish-wlan-keyboard):
  Use your computer keyboard to type on your phone.
