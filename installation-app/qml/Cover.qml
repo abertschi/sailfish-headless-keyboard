@@ -10,7 +10,7 @@ CoverBackground {
         anchors.rightMargin: Theme.paddingLarge
         fillMode: Image.PreserveAspectFit
         opacity: 1
-        source: "image://theme/headless-keyboard"
+        source: "headless-keyboard.big.png"
     }
 }
 

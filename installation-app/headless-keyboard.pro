@@ -11,6 +11,7 @@ OTHER_FILES += qml/headless-keyboard.qml \
     rpm/headless-keyboard.spec \
     rpm/headless-keyboard.yaml \
     translations/*.ts \
+    headless-keyboard.big.png \
     headless-keyboard.desktop \
     ../custom_headless_keyboard.qml \
     ../§custom_headless_keyboard.conf
