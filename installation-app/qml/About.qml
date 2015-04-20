@@ -91,9 +91,19 @@ Page {
                 wrapMode: Text.Wrap
             }
 
+            Button {
+                text: qsTr("Donate")
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                onClicked: {
+                    Qt.openUrlExternally("http://www.abertschi.ch");
+                    console.log('open url')
+                }
+            }
+
             Label {
                 width: parent.width
-                text: qsTr("Andrin Bertschi")
+                text: "Andrin Bertschi"
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
@@ -105,7 +115,7 @@ Page {
             }
             Label {
                 width: parent.width
-                text: qsTr("sailfish@abertschi.ch")
+                text: "sailfish@abertschi.ch"
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor

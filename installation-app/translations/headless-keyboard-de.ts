@@ -32,11 +32,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Andrin Bertschi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>sailfish@abertschi.ch</source>
+        <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

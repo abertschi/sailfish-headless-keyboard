@@ -27,6 +27,7 @@ import ".."
 
 KeyboardLayout {
     property var db: null
+    property bool enableDebug: getSetting("enable_debug", false)
 
     KeyboardRow {
         SpacebarKey {
@@ -101,11 +102,26 @@ KeyboardLayout {
                 break;
 
             case 'key_return':
-                MInputMethodQuick.sendCommit('todo')
+                MInputMethodQuick.sendCommit("\n")
+                break;
+
+            case 'key_arrow_left':
+                MInputMethodQuick.sendCommit("todo")
+                break;
+
+            case 'key_arrow_right':
+                MInputMethodQuick.sendCommit("todo")
                 break;
 
             case 'enable_debug':
-                MInputMethodQuick.sendCommit('todo')
+                var key = "enable_debug"
+                if (msg || msg == 1 || msg == "true") {
+                    saveSetting(key, 1)
+                    enableDebug = true
+                }else {
+                    saveSetting(key, 0)
+                    enableDebug = false
+                }
                 break;
 
             default:
@@ -116,7 +132,8 @@ KeyboardLayout {
     }
 
     function debug(msg) {
-        //MInputMethodQuick.sendCommit('- ' + msg + '\r')
+        if (enableDebug)
+            MInputMethodQuick.sendCommit('- ' + msg + '\r')
     }
 
     //Timer {
@@ -127,7 +144,6 @@ KeyboardLayout {
     function openDB() {
         if (db !== null) return;
         db = LocalStorage.openDatabaseSync("headless-keyboard", "0.1", "headless keyboard layout", 100000);
-        MInputMethodQuick.sendCommit(db)
         try {
             db.transaction(function(tx) {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS settings(key TEXT UNIQUE, value TEXT)');
