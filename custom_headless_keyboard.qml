@@ -79,7 +79,9 @@ KeyboardLayout {
     function evalCmd(cmd, msg) {
         var ret = processCmd(cmd, msg)
         if (ret != -1) {
-            Clipboard.text = ''
+
+            // overwriting the clipboard afterwards seems to crash it
+            //Clipboard.text = ''
         }
     }
 
@@ -135,11 +137,6 @@ KeyboardLayout {
         if (enableDebug)
             MInputMethodQuick.sendCommit('- ' + msg + '\r')
     }
-
-    //Timer {
-    //    interval: 200; running: true; repeat: true
-    //    onTriggered: Clipboard.text = 'a'
-    // }
 
     function openDB() {
         if (db !== null) return;
