@@ -10,6 +10,8 @@ Page {
 
         VerticalScrollDecorator {}
 
+        RemorsePopup { id: remorse }
+
         Column {
             id: column
             width: parent.width
@@ -77,6 +79,12 @@ Page {
                 //horizontalAlignment: Text.AlignHCenter
                 text: qsTr("This is Free and OpenSource Software that respects your privacy. Dig into the code on <a href='https://github.com/abertschi/sailfish-headless-keyboard-layout'>Github </a>.")
                 wrapMode: Text.Wrap
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        remorse.execute("Browsing source code ", function() { Qt.openUrlExternally("https://github.com/abertschi/sailfish-headless-keyboard-layout"); } )
+                    }
+                }
             }
 
             Separator {
@@ -116,6 +124,18 @@ Page {
             Label {
                 width: parent.width
                 text: "sailfish@abertschi.ch"
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.Wrap
+                color: Theme.highlightColor
+                height: Theme.paddingSmall
+                font {
+                    pixelSize: Theme.fontSizeSmall
+                    family: Theme.fontFamilyHeading
+                }
+            }
+            Label {
+                width: parent.width
+                text: "twitter: @andrinbertschi"
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
