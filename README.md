@@ -7,8 +7,12 @@ The headless keyboard layout provides an alternative keyboard layout for
 sailfish os. It aims to enable applications to insert any text into a
 currently focused widget on the screen.
 
+## Note
+**For a more sophisticated implementation of the headless-keyboard layout, you may take a look at
+the DBus based implementation: https://github.com/abertschi/sailfish-headless-keyboard-dbus**
+
 ## Installation
-- This project is still in development
+- The keyboard layout is published on openrepos: https://openrepos.net/content/abertschi/headless-keyboard
 
 # API
 
